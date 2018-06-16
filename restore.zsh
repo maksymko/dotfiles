@@ -10,3 +10,7 @@ fi
 if [[ ! -e $HOME/.gvimrc ]]; then
     ln -s $DOT_ROOT/gvimrc $HOME/.gvimrc
 fi
+
+if [[ ! -e $HOME/.i3 ]]; then
+    ln -s $DOT_ROOT/i3 $HOME/.i3
+fi
