@@ -14,3 +14,8 @@ fi
 if [[ ! -e $HOME/.i3 ]]; then
     ln -s $DOT_ROOT/i3 $HOME/.i3
 fi
+
+# This requires ZSH_CUSTOM to be exported, which it is not by default
+if [[ ! -e $ZSH_CUSTOM/themes/mxsl.zsh-theme ]]; then
+    ln -s $DOT_ROOT/mxsl.zsh-theme $ZSH_CUSTOM/themes/mxsl.zsh-theme
+fi
