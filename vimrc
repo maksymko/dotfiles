@@ -39,6 +39,10 @@ Plugin 'gmarik/Vundle.vim'
 " Keep Plugin commands between vundle#begin/end.
 " plugin on GitHub repo
 Plugin 'wting/rust.vim'
+Plugin 'jiangmiao/auto-pairs'
+Plugin 'tpope/vim-surround'
+Plugin 'vim-scripts/taglist.vim'
+Plugin 'scrooloose/nerdtree'
 " plugin from http://vim-scripts.org/vim/scripts.html
 " Plugin 'L9'
 " Git plugin not hosted on GitHub
