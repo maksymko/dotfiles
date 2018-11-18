@@ -380,13 +380,40 @@ au FocusGained * call NumberLineMode(2)
 au InsertEnter * call NumberLineMode(1)
 au InsertLeave * call NumberLineMode(2)
 
+function! s:find_tags(filepath, tags_file_name)
+    let c_dir = fnamemodify(a:filepath, ':h')
+    let c_dirname = fnamemodify(c_dir, ':t')
+    while c_dir != '/' && c_dirname != 'develop' && c_dirname != ''
+        let tag_path = c_dir . '/' . a:tags_file_name
+        if filereadable(tag_path)
+            " If there is a file c_dir . tags, use it
+            return tag_path
+            break
+        else
+            " Otherwise go one directory up
+            let c_dir = fnamemodify(c_dir, ':h')
+            let c_dirname = fnamemodify(c_dir, ':t')
+        endif
+    endwhile
+
+    return v:none
+endfunction
+
 function! ConfigureUbleMode()
     let &tags = substitute(expand('%:p:h'), 'uble/.*', 'uble/ctags', '')
     let astyle_opts = substitute(expand('%:p:h'), 'uble/.*', 'uble/astyle.opts', '')
     let &formatprg = "astyle --options=" . astyle_opts
 endfunction
 
+function! s:set_tags(tags_file_name)
+    let tag_file = s:find_tags(expand('%:p'), a:tags_file_name)
+    if tag_file != v:none
+        let &tags = tag_file
+    endif
+endfunction
+
 au BufEnter,BufNew */uble/*.c,*/uble/*.h,*/uble/*.cc,*/uble/*.hpp call ConfigureUbleMode()
+au BufEnter,BufNew */develop/*.c,*/develop/*.h,*/develop/*.cc,*/develop/*.hpp,*/develop/*.cpp call s:set_tags('ctags')
 
 set number
 set relativenumber
