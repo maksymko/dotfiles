@@ -28,6 +28,8 @@ restore_dot() {
 restore_dot vimrc
 restore_dot gvimrc
 restore_dot i3
+restore_dot zshrc
+restore_dot zsh_aliases
 
 # This requires ZSH_CUSTOM to be exported, which it is not by default
 if [[ ! -e $ZSH_CUSTOM/themes/mxsl.zsh-theme ]]; then

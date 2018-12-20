@@ -1,0 +1,8 @@
+alias gvim0='gvim --servername GVIM --remote'
+alias gvim1='gvim --servername GVIM1 --remote'
+alias gvim2='gvim --servername GVIM2 --remote'
+alias gvim3='gvim --servername GVIM3 --remote'
+alias gvim4='gvim --servername GVIM4 --remote'
+alias gvim5='gvim --servername GVIM5 --remote'
+alias gvim6='gvim --servername GVIM6 --remote'
+alias gvim7='gvim --servername GVIM7 --remote'
