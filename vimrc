@@ -324,7 +324,6 @@ set nowritebackup
 
 autocmd FileType python set formatoptions=wcrq2l
 autocmd FileType python set inc="^\s*from"
-autocmd FileType python so /usr/share/vim/vim74/indent/python.vim
 
 autocmd FileType c      set si
 autocmd FileType mail   set noai
