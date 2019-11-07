@@ -65,6 +65,10 @@ augroup filetypedetect
   au! BufRead,BufNewFile SConstruct,SConscript set filetype=python
 augroup END
 
+augroup spelling
+    au FileType gitcommit,markdown,txt set spell
+augroup END
+
 au BufRead,BufNewFile */libopencm3/*.h,*/libopencm3/*.c set noexpandtab
 au BufRead,BufNewFile */unicore-mx/*.h,*/unicore-mx/*.c set noexpandtab
 
