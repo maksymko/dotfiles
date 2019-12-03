@@ -1,3 +1,7 @@
+if filereadable($HOME . "/.vimrc_private")
+    so ~/.vimrc_private
+endif
+
 syntax on
 set cindent
 set ts=4
