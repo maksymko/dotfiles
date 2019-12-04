@@ -199,7 +199,7 @@ function! ConfigureUbleMode()
     let &formatprg = "astyle --options=" . astyle_opts
 endfunction
 
-function! s:set_tags(tags_file_name)
+function! SetTagsByBaseName(tags_file_name)
     let tag_file = s:find_tags(expand('%:p'), a:tags_file_name)
     if tag_file != v:none
         let &tags = tag_file
@@ -207,4 +207,4 @@ function! s:set_tags(tags_file_name)
 endfunction
 
 au BufEnter,BufNew */uble/*.c,*/uble/*.h,*/uble/*.cc,*/uble/*.hpp call ConfigureUbleMode()
-au BufEnter,BufNew */develop/*.c,*/develop/*.h,*/develop/*.cc,*/develop/*.hpp,*/develop/*.cpp call s:set_tags('ctags')
+au BufEnter,BufNew */develop/*.c,*/develop/*.h,*/develop/*.cc,*/develop/*.hpp,*/develop/*.cpp call SetTagsByBaseName('ctags')
