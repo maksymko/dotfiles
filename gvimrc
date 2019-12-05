@@ -8,6 +8,8 @@ let font5="FreeMono 12"
 let font6="Inconsolata Medium 14"
 let &guifont=font6
 
+set titlestring=%{v:servername}\ %f
+
 " Keep this at the bottom
 if filereadable($HOME . "/.gvimrc_override")
     so ~/.gvimrc_override
