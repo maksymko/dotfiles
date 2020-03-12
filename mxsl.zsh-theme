@@ -1,6 +1,6 @@
 local ret_status_box="%(?:%{$fg_bold[green]%}╭ :%{$fg_bold[red]%}╭ )"
 local ret_status_arrow="%(?:%{$fg_bold[green]%}╰⇾ :%{$fg_bold[red]%}╰⇾ )"
-PROMPT='${ret_status_box} %{$fg[cyan]%}%3~%{$reset_color%} $(git_prompt_info)
+PROMPT='${ret_status_box} %{$reset_color%} ${ZSH_HOST_INFO} %{$fg[cyan]%}%3~%{$reset_color%} $(git_prompt_info)
 ${ret_status_arrow}%{$reset_color%}'
 
 ZSH_THEME_GIT_PROMPT_PREFIX="%{$fg_bold[blue]%}git:(%{$fg[red]%}"

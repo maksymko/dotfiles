@@ -9,6 +9,13 @@ export ZSH=$HOME/.oh-my-zsh
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
 ZSH_THEME="mxsl"
 
+if (( ${+SSH_CLIENT} )); then
+    ZSH_HOST_INFO="($USER@$HOST)"
+else
+    ZSH_HOST_INFO=""
+fi
+export ZSH_HOST_INFO
+
 # Set list of themes to load
 # Setting this variable when ZSH_THEME="blokkzh"
 # cause zsh load theme from this variable instead of
@@ -58,7 +65,7 @@ DISABLE_UNTRACKED_FILES_DIRTY="true"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=( jump git vi-mode)
+plugins=(mercurial jump git vi-mode)
 
 source $ZSH/oh-my-zsh.sh
 
