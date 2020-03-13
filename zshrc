@@ -11,10 +11,13 @@ ZSH_THEME="mxsl"
 
 if (( ${+SSH_CLIENT} )); then
     ZSH_HOST_INFO="($USER@$HOST)"
+    EDITOR="vim"
 else
     ZSH_HOST_INFO=""
+    EDITOR="gvim -f"
 fi
 export ZSH_HOST_INFO
+export EDITOR
 
 # Set list of themes to load
 # Setting this variable when ZSH_THEME="blokkzh"
@@ -71,7 +74,6 @@ source $ZSH/oh-my-zsh.sh
 
 # User configuration
 export LESS=-iXFR
-export EDITOR="gvim -f"
 export SCONSFLAGS="$SCONSFLAGS -j 16"
 export PATH=/opt/gcc-arm-none-eabi-7-2017-q4-major/bin:$PATH
 
@@ -105,4 +107,9 @@ export PATH=/opt/gcc-arm-none-eabi-7-2017-q4-major/bin:$PATH
 #
 if [[ -e ~/.zsh_aliases ]]; then
     source ~/.zsh_aliases
+fi
+
+# Aliases that are note version controlled
+if [[ -e ~/.zsh_aliases_private ]]; then
+    source ~/.zsh_aliases_private
 fi
