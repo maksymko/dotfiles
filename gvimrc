@@ -10,6 +10,8 @@ let &guifont=font6
 
 set titlestring=%{v:servername}\ %f
 
+colorscheme evening
+
 " Keep this at the bottom
 if filereadable($HOME . "/.gvimrc_override")
     so ~/.gvimrc_override
