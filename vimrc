@@ -208,5 +208,14 @@ function! SetTagsByBaseName(tags_file_name)
     endif
 endfunction
 
+function! SignOff()
+    if exists('g:user_name') && exists('g:user_email')
+        let lnum = line('.')
+        call setline(lnum, 'Signed-Off-By: ' . g:user_name . ' <' . g:user_email . '>')
+    endif
+endfunction
+
+au FileType gitcommit nnoremap <C-s> call SignOff()
+
 au BufEnter,BufNew */uble/*.c,*/uble/*.h,*/uble/*.cc,*/uble/*.hpp call ConfigureUbleMode()
 au BufEnter,BufNew */develop/*.c,*/develop/*.h,*/develop/*.cc,*/develop/*.hpp,*/develop/*.cpp call SetTagsByBaseName('ctags')
