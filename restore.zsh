@@ -1,6 +1,6 @@
 #!/bin/zsh
 
-if [ ! -n ${ZSH_CUSTOM+1} ]; then
+if [[ -z "$ZSH_CUSTOM" ]]; then
     echo "Please export ZSH_CUSTOM, then run this script again.";
     exit 1;
 fi
@@ -35,3 +35,13 @@ restore_dot zsh_aliases
 if [[ ! -e $ZSH_CUSTOM/themes/mxsl.zsh-theme ]]; then
     ln -s $DOT_ROOT/mxsl.zsh-theme $ZSH_CUSTOM/themes/mxsl.zsh-theme
 fi
+
+# Restore zsh plugins. Note, these are copied!
+for pd in zsh_plugins/*; do
+    echo "Installing zsh plugin <${pd#**/}>"
+    plugin_dir="$ZSH_CUSTOM/plugins/${pd#**/}"
+    mkdir -p "$plugin_dir"
+    for f in ${pd}/*; do
+        cp -f $f "$plugin_dir"
+    done
+done

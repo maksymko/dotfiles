@@ -69,7 +69,7 @@ DISABLE_UNTRACKED_FILES_DIRTY="true"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(mercurial jump git vi-mode)
+plugins=(mercurial jump git vi-mode pushover)
 
 # Configuration that can't be shared
 if [[ -e ~/.zshrc_private ]]; then
