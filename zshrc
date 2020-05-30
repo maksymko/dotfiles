@@ -81,7 +81,7 @@ source $ZSH/oh-my-zsh.sh
 # User configuration
 export LESS=-iXFR
 export SCONSFLAGS="$SCONSFLAGS -j 16"
-export PATH=/opt/gcc-arm-none-eabi-7-2017-q4-major/bin:$PATH
+export PATH=$HOME/bin:/opt/gcc-arm-none-eabi-7-2017-q4-major/bin:$PATH
 
 
 # export MANPATH="/usr/local/man:$MANPATH"
