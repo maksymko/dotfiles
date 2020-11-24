@@ -49,6 +49,7 @@ Plugin 'vim-scripts/taglist.vim'
 Plugin 'scrooloose/nerdtree'
 Plugin 'mxw/vim-hg'
 Plugin 'kergoth/vim-bitbake'
+Plugin 'sophacles/vim-bundle-mako'
 " plugin from http://vim-scripts.org/vim/scripts.html
 " Plugin 'L9'
 " Git plugin not hosted on GitHub
