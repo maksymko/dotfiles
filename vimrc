@@ -30,6 +30,11 @@ hi Cursor guibg=yellow
 set nocompatible              " be iMproved, required
 filetype off                  " required
 
+" Disable terminus plugin in GUI environment.
+if has("gui_running")
+    let g:TerminusLoaded=1
+endif
+
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
@@ -50,6 +55,7 @@ Plugin 'scrooloose/nerdtree'
 Plugin 'mxw/vim-hg'
 Plugin 'kergoth/vim-bitbake'
 Plugin 'sophacles/vim-bundle-mako'
+Plugin 'wincent/terminus'
 " plugin from http://vim-scripts.org/vim/scripts.html
 " Plugin 'L9'
 " Git plugin not hosted on GitHub
