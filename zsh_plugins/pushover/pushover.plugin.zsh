@@ -10,6 +10,18 @@ _do_pushover() {
         -d message=${message}
 }
 
+_do_pushover_status() {
+    local command="$1"
+
+    if $@; then
+        pushover "${command} done -- OK"
+    else
+        local status=$?
+        pushover "${command} done -- FAILURE"
+        exit ${status}
+    fi
+}
+
 alias pushover=false
 
 if [ -z "${PUSHOVER_API_TOKEN}" ] || [ -z "${PUSHOVER_USER_KEY}" ]; then
@@ -30,3 +42,5 @@ if which curl > /dev/null; then
 else
     echo "curl not found, pushover plugin is not enabled." >&2
 fi
+
+alias pushover_status=_do_pushover_status
