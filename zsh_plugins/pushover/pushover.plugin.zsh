@@ -16,9 +16,9 @@ _do_pushover_status() {
     if $@; then
         pushover "${command} done -- OK"
     else
-        local status=$?
-        pushover "${command} done -- FAILURE"
-        exit ${status}
+        local ret_status=$?
+        pushover "${command} done -- FAILURE (${ret_status})"
+        exit ${ret_status}
     fi
 }
 
