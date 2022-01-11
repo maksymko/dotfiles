@@ -7,22 +7,23 @@ _do_pushover() {
     curl ${PUSHOVER_VERBOSE} $PUSHOVER_BASE_URL \
         -d token=${PUSHOVER_API_TOKEN} \
         -d user=${PUSHOVER_USER_KEY} \
-        -d message=${message}
+        -d message="${message}"
 }
 
 _do_pushover_status() {
     local command="$1"
 
     if $@; then
-        pushover "${command} done -- OK"
+        _do_pushover "${command} done -- OK"
     else
         local ret_status=$?
-        pushover "${command} done -- FAILURE (${ret_status})"
-        exit ${ret_status}
+        _do_pushover "${command} done -- FAILURE (${ret_status})"
+        return ${ret_status}
     fi
 }
 
 alias pushover=false
+alias pushover_status=false
 
 if [ -z "${PUSHOVER_API_TOKEN}" ] || [ -z "${PUSHOVER_USER_KEY}" ]; then
     # The values configured via zshrc or other means take priority.
@@ -39,8 +40,8 @@ fi
 
 if which curl > /dev/null; then
     alias pushover=_do_pushover
+    alias pushover_status=_do_pushover_status
 else
     echo "curl not found, pushover plugin is not enabled." >&2
 fi
 
-alias pushover_status=_do_pushover_status
