@@ -9,11 +9,11 @@
        "x": 0,
        "y": 0
     },
-    "name": "MIPT-talks - When2meet — Mozilla Firefox",
+    "name": "Thomas Endurance Coaching — Mozilla Firefox",
     "percent": 0.5,
     "swallows": [
        {
-        "class": "^Firefox$"
+       "class": "^firefox$"
        }
     ],
     "type": "con"
@@ -37,11 +37,11 @@
                "x": 0,
                "y": 0
             },
-            "name": "Inbox - m.sloyko@gmail.com - Mozilla Thunderbird",
-            "percent": null,
+            "name": "Inbox - Protonmail - Mozilla Thunderbird",
+            "percent": 1,
             "swallows": [
                {
-                   "class": "^Thunderbird$"
+                "class": "^Thunderbird$"
                }
             ],
             "type": "con"
