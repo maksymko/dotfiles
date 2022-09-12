@@ -1,11 +1,21 @@
-for i in $(seq 0 9); do
-    servername="GVIM${i}";
-    if [[ i -eq 0 ]]; then
-        servername="GVIM";
+function set_gvim_aliases {
+    local servername_base="GVIM"
+
+    if [[ $(uname) == ?"arwin" ]]; then
+        servername_base="VIM"
     fi
 
-    alias gvim${i}="gvim --servername ${servername} --remote"
-    alias gvimt${i}="gvim --servername ${servername} --remote-send \"<ESC>:tabnew<CR>\" --remote"
-    alias gvimv${i}="gvim --servername ${servername} --remote-send \"<ESC>:vsplit<CR>\" --remote"
-    alias gvims${i}="gvim --servername ${servername} --remote-send \"<ESC>:split<CR>\" --remote"
-done
+    for i in $(seq 0 9); do
+        servername="${servername_base}${i}";
+        if [[ i -eq 0 ]]; then
+            servername="${servername_base}";
+        fi
+
+        alias gvim${i}="gvim --servername ${servername} --remote"
+        alias gvimt${i}="gvim --servername ${servername} --remote-send \"<ESC>:tabnew<CR>\" --remote"
+        alias gvimv${i}="gvim --servername ${servername} --remote-send \"<ESC>:vsplit<CR>\" --remote"
+        alias gvims${i}="gvim --servername ${servername} --remote-send \"<ESC>:split<CR>\" --remote"
+    done
+}
+
+set_gvim_aliases

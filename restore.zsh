@@ -5,7 +5,7 @@ if [[ -z "$ZSH_CUSTOM" ]]; then
     exit 1;
 fi
 
-SCRIPT=$(realpath $0)
+SCRIPT=${0:a}
 DOT_ROOT=${SCRIPT:h}
 
 link_if_not_exists() {
