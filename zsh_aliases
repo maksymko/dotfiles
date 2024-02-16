@@ -19,3 +19,5 @@ function set_gvim_aliases {
 }
 
 set_gvim_aliases
+
+alias dirs="dirs -v"
