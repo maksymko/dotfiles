@@ -178,6 +178,7 @@ mode "$mode_system" {
 exec "setxkbmap -option grp:caps_toggle,grp_led:caps us,ru"
 exec --no-startup-id "compton -b --config ~/.i3/compton.conf"
 exec xset dpms 1800 2400 3600
+exec xset s off
 # -------------------------------------
 
 # This should be only in home private config TODO
