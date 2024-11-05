@@ -1,8 +1,8 @@
 #!/bin/zsh
 
-if [[ -z "$ZSH_CUSTOM" ]]; then
-    echo "Please export ZSH_CUSTOM, then run this script again.";
-    exit 1;
+if [[ ! -e $HOME/.oh-my-zsh ]]; then
+    ./oh-my-zsh-install.sh
+    export ZSH_CUSTOM
 fi
 
 SCRIPT=${0:a}
@@ -30,6 +30,11 @@ restore_dot gvimrc
 restore_dot i3
 restore_dot zshrc
 restore_dot zsh_aliases
+
+if [[ -z "$ZSH_CUSTOM" ]]; then
+    echo "Not restoring Oh-My-Zsh plugins: ZSH_CUSTOM is not exported";
+    exit 1;
+fi
 
 # This requires ZSH_CUSTOM to be exported, which it is not by default
 if [[ ! -e $ZSH_CUSTOM/themes/mxsl.zsh-theme ]]; then
