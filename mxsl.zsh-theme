@@ -4,6 +4,12 @@ else
     PROMPT_LOCATION_INFO=true
 fi
 
+if [[ ! -z ${VIRTUAL_ENV} ]]; then
+    env_name_sub=${VIRTUAL_ENV#*.}
+    env_name=${env_name_sub%%/*}
+    ZSH_HOST_INFO="${ZSH_HOST_INFO}[${env_name}] "
+fi
+
 local ret_status_box="%(?:%{$fg_bold[green]%}╭ :%{$fg_bold[red]%}╭ )"
 local ret_status_arrow="%(?:%{$fg_bold[green]%}╰⇾ :%{$fg_bold[red]%}╰⇾ )"
 PROMPT='${ret_status_box} %{$reset_color%}${ZSH_HOST_INFO}$(${PROMPT_LOCATION_INFO})%{$fg[cyan]%}%3~%{$reset_color%} $(git_prompt_info)
