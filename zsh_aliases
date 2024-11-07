@@ -22,6 +22,8 @@ set_gvim_aliases
 
 alias dirs="dirs -v"
 
-if which ctags-exuberant >> /dev/null; then
+if which etags >> /dev/null; then
+    alias ctags=etags
+elif which ctags-exuberant >> /dev/null; then
     alias ctags=ctags-exuberant
 fi

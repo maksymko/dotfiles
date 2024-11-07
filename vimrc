@@ -47,15 +47,16 @@ Plugin 'gmarik/Vundle.vim'
 " The following are examples of different formats supported.
 " Keep Plugin commands between vundle#begin/end.
 " plugin on GitHub repo
-Plugin 'rust-lang/rust.vim'
+"Plugin 'rust-lang/rust.vim'
 Plugin 'jiangmiao/auto-pairs'
 Plugin 'tpope/vim-surround'
-Plugin 'vim-scripts/taglist.vim'
+Plugin 'preservim/tagbar'
 Plugin 'scrooloose/nerdtree'
 Plugin 'mxw/vim-hg'
-Plugin 'kergoth/vim-bitbake'
-Plugin 'sophacles/vim-bundle-mako'
+"Plugin 'kergoth/vim-bitbake'
+"Plugin 'sophacles/vim-bundle-mako'
 Plugin 'wincent/terminus'
+Plugin 'itchyny/lightline.vim'
 " plugin from http://vim-scripts.org/vim/scripts.html
 " Plugin 'L9'
 " Git plugin not hosted on GitHub
@@ -104,8 +105,8 @@ endif
 
 " end Perl settings
 
-nnoremap <silent> <F8> :TlistToggle<CR>
-inoremap <silent> <F8> <Esc>:TlistToggle<CR><Esc>
+nnoremap <silent> <F8> :TagbarToggle<CR>
+inoremap <silent> <F8> <Esc>:TagbarToggle<CR><Esc>
 
 let Tlist_Show_One_File = 1
 let Tlist_Sort_Type = "name"
