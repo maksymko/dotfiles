@@ -31,6 +31,13 @@ restore_dot i3
 restore_dot zshrc
 restore_dot zsh_aliases
 
+if [[ ! -e ~/.vim/bundle/Vundle.vim ]]; then
+    git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+    # TODO: Clone Hash
+else
+    echo "Vim Vundle installed, skipping"
+fi
+
 if [[ -z "$ZSH_CUSTOM" ]]; then
     echo "Not restoring Oh-My-Zsh plugins: ZSH_CUSTOM is not exported";
     exit 1;
