@@ -73,6 +73,8 @@ Plugin 'itchyny/lightline.vim'
 call vundle#end()            " required
 filetype plugin indent on    " required
 
+packadd YouCompleteMe
+
 augroup filetypedetect
 " Octave syntax
   au! BufRead,BufNewFile *.m,*.oct set filetype=octave
