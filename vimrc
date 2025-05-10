@@ -54,9 +54,10 @@ Plugin 'preservim/tagbar'
 Plugin 'scrooloose/nerdtree'
 Plugin 'mxw/vim-hg'
 "Plugin 'kergoth/vim-bitbake'
-"Plugin 'sophacles/vim-bundle-mako'
+Plugin 'sophacles/vim-bundle-mako'
 Plugin 'wincent/terminus'
 Plugin 'itchyny/lightline.vim'
+Plugin 'arrufat/vala.vim'
 " plugin from http://vim-scripts.org/vim/scripts.html
 " Plugin 'L9'
 " Git plugin not hosted on GitHub
