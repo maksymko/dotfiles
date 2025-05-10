@@ -4,9 +4,8 @@ else
     PROMPT_LOCATION_INFO=true
 fi
 
-if [[ ! -z ${VIRTUAL_ENV} ]]; then
-    env_name_sub=${VIRTUAL_ENV#*.}
-    env_name=${env_name_sub%%/*}
+if set | egrep -q DEVENV; then
+    env_name=${name}
     ZSH_HOST_INFO="${ZSH_HOST_INFO}[${env_name}] "
 fi
 

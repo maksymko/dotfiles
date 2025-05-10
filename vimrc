@@ -57,7 +57,6 @@ Plugin 'mxw/vim-hg'
 Plugin 'sophacles/vim-bundle-mako'
 Plugin 'wincent/terminus'
 Plugin 'itchyny/lightline.vim'
-Plugin 'arrufat/vala.vim'
 " plugin from http://vim-scripts.org/vim/scripts.html
 " Plugin 'L9'
 " Git plugin not hosted on GitHub
@@ -73,6 +72,8 @@ Plugin 'arrufat/vala.vim'
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
+
+packadd YouCompleteMe
 
 augroup filetypedetect
 " Octave syntax
