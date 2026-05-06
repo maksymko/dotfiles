@@ -27,3 +27,10 @@ if which etags >> /dev/null; then
 elif which ctags-exuberant >> /dev/null; then
     alias ctags=ctags-exuberant
 fi
+
+if which grc; then
+    alias ifconfig='grc ifconfig'
+    alias lsblk='grc lsblk'
+    alias ping='grc ping'
+    alias ip='grc ip'
+fi

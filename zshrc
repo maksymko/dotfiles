@@ -119,3 +119,12 @@ fi
 if [[ -e ~/.zsh_aliases_private ]]; then
     source ~/.zsh_aliases_private
 fi
+
+# >>> juliaup initialize >>>
+
+# !! Contents within this block are managed by juliaup !!
+
+path=('/home/maxim/.juliaup/bin' $path)
+export PATH
+
+# <<< juliaup initialize <<<
