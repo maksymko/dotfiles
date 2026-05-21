@@ -9,6 +9,10 @@ if set | egrep -q DEVENV; then
     ZSH_HOST_INFO="${ZSH_HOST_INFO}[${env_name}] "
 fi
 
+if [[ ! -z ${DISTROBOX_HOST_HOME} ]]; then
+    ZSH_HOST_INFO="{DB:${CONTAINER_ID}}-${ZSH_HOST_INFO}"
+fi
+
 local ret_status_box="%(?:%{$fg_bold[green]%}╭ :%{$fg_bold[red]%}╭ )"
 local ret_status_arrow="%(?:%{$fg_bold[green]%}╰⇾ :%{$fg_bold[red]%}╰⇾ )"
 PROMPT='${ret_status_box} %{$reset_color%}${ZSH_HOST_INFO}$(${PROMPT_LOCATION_INFO})%{$fg[cyan]%}%3~%{$reset_color%} $(git_prompt_info)
