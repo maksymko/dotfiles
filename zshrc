@@ -82,6 +82,7 @@ source $ZSH/oh-my-zsh.sh
 export LESS=-iXFR
 export SCONSFLAGS="$SCONSFLAGS -j 16"
 export PATH=$HOME/bin:$PATH
+export GPG_TTY=$(tty)
 
 
 # export MANPATH="/usr/local/man:$MANPATH"
