@@ -59,6 +59,7 @@ Plugin 'wincent/terminus'
 Plugin 'itchyny/lightline.vim'
 Plugin 'JuliaEditorSupport/julia-vim'
 Plugin 'ycm-core/YouCompleteMe'
+Plugin 'Exafunction/windsurf.vim'
 " plugin from http://vim-scripts.org/vim/scripts.html
 " Plugin 'L9'
 " Git plugin not hosted on GitHub
@@ -70,10 +71,14 @@ Plugin 'ycm-core/YouCompleteMe'
 " Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
 " Avoid a name conflict with L9
 " Plugin 'user/L9', {'name': 'newL9'}
-
+"
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
+
+let g:codeium_server_config = {
+  \'portal_url': 'https://windsurf.fedstart.com',
+  \'api_url': 'https://windsurf.fedstart.com/_route/api_server' }
 
 packadd YouCompleteMe
 let g:ycm_autoclose_preview_window_after_completion = 1
