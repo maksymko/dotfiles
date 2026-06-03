@@ -53,12 +53,12 @@ Plugin 'tpope/vim-surround'
 Plugin 'preservim/tagbar'
 Plugin 'scrooloose/nerdtree'
 Plugin 'mxw/vim-hg'
-"Plugin 'kergoth/vim-bitbake'
+Plugin 'kergoth/vim-bitbake'
 Plugin 'sophacles/vim-bundle-mako'
 Plugin 'wincent/terminus'
 Plugin 'itchyny/lightline.vim'
 Plugin 'JuliaEditorSupport/julia-vim'
-Plugin 'ycm-core/YouCompleteMe'
+Plugin 'Exafunction/windsurf.vim'
 " plugin from http://vim-scripts.org/vim/scripts.html
 " Plugin 'L9'
 " Git plugin not hosted on GitHub
@@ -79,6 +79,13 @@ packadd YouCompleteMe
 let g:ycm_autoclose_preview_window_after_completion = 1
 let g:ycm_log_level = 'debug'
 
+let g:codeium_no_map_tab = v:true
+let g:codeium_server_config = {
+  \'portal_url': 'https://windsurf.fedstart.com',
+  \'api_url': 'https://windsurf.fedstart.com/_route/api_server' }
+
+imap <script><silent><nowait><expr> <C-s> codeium#Accept()
+
 augroup filetypedetect
 " Octave syntax
   au! BufRead,BufNewFile *.m,*.oct set filetype=octave
@@ -88,9 +95,6 @@ augroup END
 augroup spelling
     au FileType gitcommit,markdown,txt set spell
 augroup END
-
-au BufRead,BufNewFile */libopencm3/*.h,*/libopencm3/*.c set noexpandtab
-au BufRead,BufNewFile */unicore-mx/*.h,*/unicore-mx/*.c set noexpandtab
 
 colorscheme ron
 
