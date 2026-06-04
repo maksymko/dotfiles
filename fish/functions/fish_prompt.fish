@@ -30,7 +30,8 @@ function fish_prompt
     end
 
     if set -q SSH_CLIENT
-        set host_information "$host_information ($USER@"(hostname)") "
+        set -l login_info (prompt_login)
+        set host_information "$host_information ($login_info) "
     end
 
     set -l virtual_env_name ''
