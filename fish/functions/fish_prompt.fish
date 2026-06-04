@@ -2,16 +2,21 @@ function fish_prompt
     set -l last_status $status
 
     # Shorten path: show ~ and abbreviate dirs to 1 char
-    set -g fish_prompt_pwd_dir_length 1
-
     set -l cwd (prompt_pwd -d3 -D2)
+    set -l fstype (findmnt -T $PWD -no FSTYPE)
 
-    set -g __fish_git_prompt_showdirtystate 1
-    set -g __fish_git_prompt_showuntrackedfiles 0
-    set -g __fish_git_prompt_showcolorhints 1
-    set -g __fish_git_prompt_color_cleanstate green
-    set -g __fish_git_prompt_showupstream auto
-    set -l git_prompt (fish_git_prompt "(%s)")
+    set -l git_prompt ''
+
+    if not string match -q 'fuse*' $fstype
+        set -gx __fish_git_prompt_showdirtystate 1
+        set -gx __fish_git_prompt_showuntrackedfiles 0
+        set -gx __fish_git_prompt_showcolorhints 1
+        set -gx __fish_git_prompt_color_cleanstate green
+        set -gx __fish_git_prompt_showupstream auto
+        set git_prompt (fish_git_prompt "(%s)")
+    else
+        set git_prompt 'FUSE'
+    end
 
     set -l status_color green
     if test $last_status -ne 0
@@ -34,7 +39,10 @@ function fish_prompt
     end
     echo -n $host_information
     echo -n (set_color cyan)$cwd(set_color normal)
-    echo -n (set_color brblue)" git:$git_prompt"(set_color normal)
+
+    if not test -z $git_prompt
+        echo -n (set_color brblue)" git:$git_prompt"(set_color normal)
+    end
 
     if test $last_status -ne 0
         echo -n ' '
