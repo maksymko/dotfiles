@@ -33,11 +33,17 @@ function fish_prompt
         set host_information "$host_information ($USER@"(hostname)") "
     end
 
+    set -l virtual_env_name ''
+    if set -q VIRTUAL_ENV_PROMPT
+        set virtual_env_name "(🐍:$VIRTUAL_ENV_PROMPT) "
+    end
+
     # First line
     if not test "$fish_key_bindings" = fish_vi_key_bindings
         echo -n (set_color $status_color)'╭ '(set_color normal)
     end
     echo -n $host_information
+    echo -n $virtual_env_name
     echo -n (set_color cyan)$cwd(set_color normal)
 
     if not test -z $git_prompt
