@@ -59,6 +59,7 @@ Plugin 'wincent/terminus'
 Plugin 'itchyny/lightline.vim'
 Plugin 'JuliaEditorSupport/julia-vim'
 Plugin 'ycm-core/YouCompleteMe'
+Plugin 'vala-lang/vala.vim'
 " plugin from http://vim-scripts.org/vim/scripts.html
 " Plugin 'L9'
 " Git plugin not hosted on GitHub
